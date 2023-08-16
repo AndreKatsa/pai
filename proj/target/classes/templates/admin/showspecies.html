@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Species</title>
+</head>
+<body>
+    <h2>Species Information</h2>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Deliveries</th>
+            <th>Amount</th>
+        </tr>
+        
+        <!-- Loop through the data using Thymeleaf -->
+        <th:block th:each="index : ${#numbers.sequence(0, #lists.size(name)-1)}">
+            <tr>
+                <td th:text="${name[index]}"></td>
+                <td>
+                    <!-- Print deliveries as a comma-separated string -->
+                    <span th:text="${#strings.arrayJoin(deliveries[index], ', ')}"></span>
+                </td>
+                <td th:text="${amounts[index]}"></td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>
